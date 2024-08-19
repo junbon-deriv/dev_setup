@@ -60,7 +60,10 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:>-,trail:-
+"set listchars=tab:>-,trail:-
+set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:+
+set tabstop=4
+highlight SpecialKey ctermfg=grey ctermbg=black
 set mouse=c
 set nowrap
 set number
@@ -103,17 +106,21 @@ map <Leader>rd :!perl -d %<CR>
 map <Leader>sc :!perl -c %<CR>
 map <Leader>rc :!perl %<CR>
 map <Leader>pt :%! perltidy -pro=/home/git/regentmarkets/cpan/rc/.perltidyrc --backup-and-modify-in-place -bext=tidyup<CR>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit<CR>
-map <Leader>gm :Gcommit --amend<CR>
-map <Leader>gll :Git log<CR>
-map <Leader>glp :Git log -p<CR>
 map <Leader>gb :Gblame<CR>
-map <Leader>gdd :Git diff<CR>
-map <Leader>gdm :Git diff %<CR>
-map <Leader>gdf :Gdiff<CR>
-map <Leader>gg :Git 
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+autocmd FileType go nmap <leader>gb  <Plug>(go-build)
+autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+autocmd FileType go nmap <leader>gt  <Plug>(go-test)
+autocmd FileType go nmap <leader>gtf  <Plug>(go-test-func)
+autocmd FileType go nmap <leader>gc  <Plug>(go-coverage-toggle)
 
 nmap <F1> <Esc>
 imap <F1> <Esc>
 
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+call plug#end()
+
+set autowrite
