@@ -17,7 +17,7 @@ chmod 644 ~/.ssh/config
 ssh-add ~/.ssh/junbon
 
 cd /home/git/regentmarkets;
-for i in perl-Quant-Framework perl-Volatility-Seasonality perl-Finance-Asset perl-postgres-feeddb perl-LandingCompany perl-VolSurface-Empirical perl-Price-Calculator perl-Pricing-Engine-BlackScholes perl-Pricing-Engine-European-Digital-Slope perl-Pricing-Engine-TickExpiry perl-Pricing-Engine-Intraday-Forex-Base perl-Pricing-Engine-Digits perl-Pricing-Engine-Markup perl-Pricing-Engine-Lookback perl-Pricing-Engine-HighLow-Ticks perl-Pricing-Engine-Reset chef perl-Brands perl-Finance-Underlying perl-Finance-Contract perl-ExchangeRates perl-ExpiryQueue perl-Finance-Contract-Longcode; do
+for i in perl-Quant-Framework perl-Volatility-Seasonality perl-Finance-Asset perl-postgres-feeddb perl-LandingCompany perl-VolSurface-Empirical perl-Price-Calculator perl-Pricing-Engine-BlackScholes perl-Pricing-Engine-European-Digital-Slope perl-Pricing-Engine-TickExpiry perl-Pricing-Engine-Intraday-Forex-Base perl-Pricing-Engine-Digits perl-Pricing-Engine-Markup perl-Pricing-Engine-Lookback perl-Pricing-Engine-HighLow-Ticks perl-Pricing-Engine-Reset chef perl-Brands perl-Finance-Underlying perl-Finance-Contract perl-ExchangeRates perl-ExpiryQueue perl-Finance-Contract-Longcode perl-Pricing-Engine-Binomial-Step; do
     git clone git@github.com:regentmarkets/$i.git;
 done;
 
@@ -25,10 +25,12 @@ for i in perl-Finance-Exchange perl-Finance-Calendar perl-Finance-YieldCurve; do
     git clone git@github.com:binary-com/$i.git;
 done;
 
-cd /home/git/regentmarkets;
-for i in $(ls); do
-    cd $i;
-    git remote add junbon git@github.com:junbon-deriv/$i.git;
-    git fetch junbon;
-    cd ..;
-done;
+cd /home/git/regentmarkets/bom-core;
+git remote add junbon git@github.com:junbon-deriv/bom-core.git;
+git fetch junbon;
+
+cd /home/git/regentmarkets/;
+git clone git@github.com:regentmarkets/service-feed.git;
+cd service-feed;
+git remote add junbon git@github.com:junbon-deriv/service-feed.git;
+git fetch junbon;
