@@ -121,7 +121,6 @@ imap <F1> <Esc>
 
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'fatih/molokai'
 call plug#end()
 
 set autowrite
@@ -130,7 +129,7 @@ set autowrite
 
 let g:rehash256 = 1
 let g:molokai_original = 1
-colorscheme molokai
+colorscheme desert
 let g:coc_disable_startup_warning = 1
 " disable all linters as that is taken care of by coc.nvim
 let g:go_diagnostics_enabled = 0
