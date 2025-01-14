@@ -34,16 +34,14 @@ for i in perl-Quant-Framework perl-Volatility-Seasonality perl-Finance-Asset per
     git clone git@github.com:regentmarkets/$i.git;
 done;
 
-for i in perl-Finance-Exchange perl-Finance-Calendar perl-Finance-YieldCurve; do
-    git clone git@github.com:binary-com/$i.git;
-done;
-
 cd /home/git/regentmarkets/bom-core;
 git remote add junbon git@github.com:junbon-deriv/bom-core.git;
 git fetch junbon;
 
+for i in options-trading-contract options-trading-market-data options-trading-pricing-engine-blackscholes; do
 cd /home/git/regentmarkets/;
-git clone git@github.com:regentmarkets/service-feed.git;
-cd service-feed;
-git remote add junbon git@github.com:junbon-deriv/service-feed.git;
+git clone git@github.com:junbon-deriv/$i.git;
+cd $i;
+git remote add junbon git@github.com:junbon-deriv/$i.git;
 git fetch junbon;
+done;
