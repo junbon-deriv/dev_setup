@@ -40,10 +40,3 @@ cd /home/git/regentmarkets/bom-core;
 git remote add junbon git@github.com:junbon-deriv/bom-core.git;
 git fetch junbon;
 
-for i in options-trading-contract options-trading-market-data options-trading-pricing-engine-blackscholes; do
-cd /home/git/regentmarkets/;
-git clone git@github.com:junbon-deriv/$i.git;
-cd $i;
-git remote add junbon git@github.com:junbon-deriv/$i.git;
-git fetch junbon;
-done;
