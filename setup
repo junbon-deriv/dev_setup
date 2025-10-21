@@ -37,6 +37,6 @@ for i in perl-Quant-Framework perl-Volatility-Seasonality perl-Finance-Asset per
 done;
 
 cd /home/git/regentmarkets/bom-core;
-git remote add junbon git@github.com:junbon-deriv/bom-core.git;
+git remote add junbon-deriv git@github.com:junbon-deriv/bom-core-v2.git;
 git fetch junbon;
 
